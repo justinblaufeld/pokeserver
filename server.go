@@ -40,11 +40,8 @@ func requestHandler(w http.ResponseWriter, r *http.Request) {
 
 	response, _ := proto.Marshal(&responseEnvelope)
 
-	fmt.Println(response)
-	proto.Unmarshal(response, &responseEnvelope)
-	fmt.Println(responseEnvelope)
-
-	w.Write(response)
+	w.Header().Set("Content-Type", "application/octet-stream")
+	w.Write(response[:])
 }
 
 func RunServer() {
