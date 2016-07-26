@@ -17,4 +17,4 @@ Right now, only a few handlers are implemented. Here's how to write your own.
 4. That's it.
 
 ## License and legal stuff
-This software is licensed under the MIT License, as specified in the `LICENSE` file in the root of this repository. This software DOES NOT redistribute copyrighted material or artwork. Pokemon is a registerted trademark of The Pokemon Company.
+This software is licensed under the MIT License, as specified in the `LICENSE` file in the root of this repository. This software DOES NOT redistribute copyrighted material or artwork. Pokémon and Pokémon GO are registerted trademarks of Nintendo Co., Ltd.
