@@ -5,6 +5,7 @@ import (
 	"github.com/golang/protobuf/proto"
 	pp "github.com/pkmngo-odi/pogo-protos"
 	"github.com/ur0/pokeserver/handlers"
+	"github.com/ur0/pokeserver/handlers/middleware"
 	"io/ioutil"
 	"net/http"
 )
@@ -18,6 +19,8 @@ func requestHandler(w http.ResponseWriter, r *http.Request) {
 	// Get the request id to send back
 	requestID := requestEnvelope.RequestId
 
+	currentPlayer := middleware.GetPlayerFromRequestEnvelope(requestEnvelope)
+
 	log.WithFields(log.Fields{"RequestID": requestID}).Info("Incoming request")
 
 	// This holds the returns of all handler functions
@@ -29,7 +32,7 @@ func requestHandler(w http.ResponseWriter, r *http.Request) {
 		log.WithFields(log.Fields{"RequestID": requestID, "RequestType": request.RequestType.String()}).Debug("Handling request")
 		switch request.RequestType.String() {
 		case "GET_PLAYER":
-			responses[i] = handlers.GetPlayer(request)
+			responses[i] = handlers.GetPlayer(request, currentPlayer)
 		default:
 			log.WithFields(log.Fields{"RequestID": requestID, "RequestType": request.RequestType.String()}).Error("Unsupported request type")
 		}
@@ -49,6 +52,7 @@ func requestHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func RunServer() {
+	log.SetLevel(log.DebugLevel) // Maybe remove this for prod envs
 	log.WithFields(log.Fields{"package": "main"}).Info("PokeServer starting")
 	http.HandleFunc("/", requestHandler)
 	http.ListenAndServe(":8080", nil)
