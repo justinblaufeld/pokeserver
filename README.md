@@ -15,3 +15,6 @@ Right now, only a few handlers are implemented. Here's how to write your own.
 2. Declare a function named `YourRequest` in the file you just created. It must accept a pointer to `PokeProtos.request` and return a `[]byte`, which should be the response, marshalled into ProtoBufs using the correct buffer for your request.
 3. Add your function to the `switch-case` statement in `server.go`, take it's response into the `responses` byte slice.
 4. That's it.
+
+## License and legal stuff
+This software is licensed under the MIT License, as specified in the `LICENSE` file in the root of this repository. This software DOES NOT redistribute copyrighted material or artwork. Pokemon is a registerted trademark of The Pokemon Company.
