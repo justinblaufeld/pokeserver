@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "yXrS4e4yxaRBu/MX+39X3cS4kbg=",
+			"path": "github.com/Sirupsen/logrus",
+			"revision": "a283a10442df8dc09befd873fab202bf8a253d6a",
+			"revisionTime": "2016-07-16T02:56:31Z"
+		},
+		{
 			"checksumSHA1": "piwYMQqpsfAur670v6rFg6gqk/c=",
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "874264fbbb43f4d91e999fecb4b40143ed611400",
@@ -13,7 +19,17 @@
 			"path": "github.com/pkmngo-odi/pogo-protos",
 			"revision": "f08b4ee605f30c8949ee8f06ad4de675a7935b9f",
 			"revisionTime": "2016-07-25T19:28:20Z"
+		},
+		{
+			"checksumSHA1": "8fD/im5Kwvy3JgmxulDTambmE8w=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "a646d33e2ee3172a661fc09bca23bb4889a41bc8",
+			"revisionTime": "2016-07-15T05:43:45Z"
+		},
+		{
+			"path": "logrus",
+			"revision": ""
 		}
 	],
-	"rootPath": "pokeserver"
+	"rootPath": "github.com/ur0/pokeserver"
 }
