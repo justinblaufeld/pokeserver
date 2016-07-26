@@ -1,12 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"github.com/golang/protobuf/proto"
 	pp "github.com/pkmngo-odi/pogo-protos"
+	"github.com/ur0/pokeserver/handlers"
 	"io/ioutil"
 	"net/http"
-	"pokeserver/handlers"
-	"fmt"
 )
 
 func requestHandler(w http.ResponseWriter, r *http.Request) {
@@ -34,8 +34,8 @@ func requestHandler(w http.ResponseWriter, r *http.Request) {
 
 	responseEnvelope := pp.ResponseEnvelope{
 		StatusCode: 0,
-		RequestId: requestID,
-		Returns: responses,
+		RequestId:  requestID,
+		Returns:    responses,
 	}
 
 	response, _ := proto.Marshal(&responseEnvelope)
